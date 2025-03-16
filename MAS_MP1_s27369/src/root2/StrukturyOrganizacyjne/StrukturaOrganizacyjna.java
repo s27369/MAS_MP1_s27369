@@ -33,6 +33,9 @@ public abstract class StrukturaOrganizacyjna {
     }
 
     public void setNumer(int numer) {
+        if (numer<1){
+            throw new IllegalArgumentException("numBrygady musi być większy lub równy 1");
+        }
         this.numer = numer;
     }
 }

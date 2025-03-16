@@ -33,6 +33,12 @@ public class Batalion extends StrukturaOrganizacyjna {
         if(!dowodca.getStopien().toLowerCase().equals("pułkownik")){
             throw new IllegalArgumentException("Dowódcą batalionu może zostać tylko pułkownik");
         }
+        System.out.println(dowodca+" obejmuje dowództwo w strukturze organizacyjnej: "+ this);
         this.dowodca = dowodca;
+    }
+
+    @Override
+    public String toString() {
+        return numer + " Batalion";
     }
 }

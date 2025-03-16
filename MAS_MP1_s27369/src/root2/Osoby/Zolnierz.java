@@ -40,13 +40,13 @@ public class Zolnierz extends Osoba{
             throw new IllegalArgumentException("stopien nie może być null ani pusty");
         }
 
-        if (stopnieSzeregowcow.contains(stopien)){
+        if (stopnieSzeregowcow.contains(stopien.toLowerCase())){
             czySzeregowy=true;
-        } else if (stopniePodoficerskie.contains(stopien)) {
+        } else if (stopniePodoficerskie.contains(stopien.toLowerCase())) {
             czyPodoficer=true;
-        } else if(stopnieOficerskie.contains(stopien)){
+        } else if(stopnieOficerskie.contains(stopien.toLowerCase())){
             czyOficer = true;
-        } else if (stopnieGeneralskie.contains(stopien)) {
+        } else if (stopnieGeneralskie.contains(stopien.toLowerCase())) {
             czyGeneral=true;
         }else{
             throw new IllegalArgumentException("niepoprawny stopień");

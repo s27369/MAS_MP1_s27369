@@ -11,8 +11,12 @@ public class Dowodca extends Zolnierz{
     private List<Zolnierz> podwladni = new ArrayList<>();
     private StrukturaOrganizacyjna dowodzonaStruktura;
 
-    public Dowodca(String imie, String nazwisko, String stopien, StrukturaOrganizacyjna dowodzonaStruktura) {
+    public Dowodca(String imie, String nazwisko, String stopien) {
         super(imie, nazwisko, stopien);
+    }
+    public Dowodca(String imie, String nazwisko, String stopien, StrukturaOrganizacyjna strukturaOrganizacyjna) {
+        this(imie, nazwisko, stopien);
+        obejmijDowodztwo(strukturaOrganizacyjna);
     }
 
     public StrukturaOrganizacyjna getDowodzonaStruktura() {
@@ -30,8 +34,8 @@ public class Dowodca extends Zolnierz{
             if(!this.getStopien().toLowerCase().equals("pułkownik"))
                 throw new IllegalArgumentException("Dowódcą batalionu może zostać tylko pułkownik");
         }
-        this.dowodzonaStruktura = dowodzonaStruktura;
         dowodzonaStruktura.setDowodca(this);
+        this.dowodzonaStruktura = dowodzonaStruktura;
     }
 
     public List<Zolnierz> getPodwladni() {
@@ -44,6 +48,7 @@ public class Dowodca extends Zolnierz{
 
     @Override
     public String toString() {
-        return super.toString()+", dowódca "+dowodzonaStruktura.toString();
+        return super.toString()+
+                (dowodzonaStruktura!=null?", dowódca "+dowodzonaStruktura.toString():"");
     }
 }

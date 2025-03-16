@@ -25,6 +25,7 @@ public class Brygada extends StrukturaOrganizacyjna {
         if(!dowodca.czyGeneral){
             throw new IllegalArgumentException("Dowódcą brygady może zostać tylko generał");
         }
+        System.out.println(dowodca+" obejmuje dowództwo w strukturze organizacyjnej: "+ this);
         this.dowodca = dowodca;
     }
 
@@ -48,5 +49,10 @@ public class Brygada extends StrukturaOrganizacyjna {
             throw new IllegalArgumentException("typ nie może być null ani blank");
         }
         this.typ = typ;
+    }
+
+    @Override
+    public String toString() {
+        return numer + " " + typ + " Brygada " + suffix ;
     }
 }
