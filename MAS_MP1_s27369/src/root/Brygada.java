@@ -6,6 +6,7 @@ public class Brygada {
 
     static final String suffix = "Obrony Terytorialnej";
 
+
     public Brygada(int numBrygady, String typ, String miasto) {
         try {
             setNumBrygady(numBrygady);
@@ -54,7 +55,8 @@ public class Brygada {
         this.typ = typ;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return numBrygady+" "+typ+" Brygada "+suffix;
+    }
 }

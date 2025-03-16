@@ -6,6 +6,7 @@ import java.util.List;
 public class Dowodca {
     private String imie, nazwisko, stopien;
     private Dowodca przelozony;
+
     List<Dowodca> podwladni = new ArrayList<>();
 
     public Dowodca(String imie, String nazwisko, String stopien) {
@@ -59,5 +60,12 @@ public class Dowodca {
             throw new IllegalArgumentException("Stopien nie może być null ani pusty");
         }
         this.stopien = stopien;
+    }
+
+    @Override
+    public String toString() {
+
+
+        return stopien+" "+imie+" "+nazwisko;
     }
 }
