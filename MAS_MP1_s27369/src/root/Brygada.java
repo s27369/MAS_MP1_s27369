@@ -27,7 +27,9 @@ public class Brygada {
     }
 
     public void setNumBrygady(int numBrygady) {
-
+        if (numBrygady<1){
+            throw new IllegalArgumentException("numBrygady musi być większy lub równy 1");
+        }
         this.numBrygady = numBrygady;
     }
 
