@@ -1,5 +1,7 @@
 package root2;
 import root2.Osoby.Dowodca;
+import root2.Osoby.Osoba;
+import root2.Osoby.Zolnierz;
 import root2.StrukturyOrganizacyjne.Batalion;
 import root2.StrukturyOrganizacyjne.Brygada;
 
@@ -12,13 +14,19 @@ public class Main {
 
         Batalion batalion18_1 = new Batalion(1, new Adres("Szeroka", 1, "Warszawa"));
         Batalion batalion18_2 = new Batalion(2, new Adres("Warszawska", 2, "Warszawa"));
-        System.out.println(batalion18_1);
-        System.out.println(batalion18_2);
 
         Batalion batalion6_1 = new Batalion(1, new Adres("Radomska", 1, "Radom"));
         Batalion batalion6_2 = new Batalion(2, new Adres("Długa", 2, "Radom"));
+
+        batalion18_1.setBrygadaMacierzysta(brygada1);
+        batalion18_2.setBrygadaMacierzysta(brygada1);
+        System.out.println(batalion18_1);
+        System.out.println(batalion18_2);
+        batalion6_1.setBrygadaMacierzysta(brygada2);
+        batalion6_2.setBrygadaMacierzysta(brygada2);
         System.out.println(batalion6_1);
         System.out.println(batalion6_2);
+
 
         Dowodca dowodca1 = new Dowodca("Jan", "Kowalski", "Generał brygady");
         System.out.println(dowodca1);
@@ -37,7 +45,17 @@ public class Main {
         System.out.println(dowodca2);
         dowodca2.obejmijDowodztwo(batalion18_1); //teraz po awansie na Pułkownika już nie ma exception
         System.out.println(dowodca2);
-        System.out.println(brygada1);
+
+        Zolnierz z1 = new Zolnierz("Jakub", "Kręgiel", "Porucznik");
+        Zolnierz z2 = new Zolnierz("Piotr", "Krasulak", "Porucznik");
+
+        dowodca1.addPodwladny(dowodca2);
+        dowodca2.addPodwladny(z1);
+        dowodca2.addPodwladny(z2);
+
+        System.out.println(dowodca1+", podwładni: "+dowodca1.getPodwladni());
+        System.out.println(dowodca2+", podwładni: "+dowodca2.getPodwladni());
+
 
     }
 }

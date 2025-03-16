@@ -5,6 +5,7 @@ import root2.StrukturyOrganizacyjne.Brygada;
 import root2.StrukturyOrganizacyjne.StrukturaOrganizacyjna;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Dowodca extends Zolnierz{
@@ -39,11 +40,17 @@ public class Dowodca extends Zolnierz{
     }
 
     public List<Zolnierz> getPodwladni() {
-        return podwladni;
+        return Collections.unmodifiableList(podwladni);
     }
 
     public void setPodwladni(List<Zolnierz> podwladni) {
         this.podwladni = podwladni;
+    }
+
+    public void addPodwladny(Zolnierz zolnierz){
+        if (zolnierz==null)
+            throw new IllegalArgumentException("Żołnierz nie może być null");
+        this.podwladni.add(zolnierz);
     }
 
     @Override

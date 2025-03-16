@@ -8,10 +8,27 @@ public class Batalion extends StrukturaOrganizacyjna {
     //każdy batalion ma swoją jednostkę.
     //dowódcą batalionu może zostać tylko pułkownik.
     private Adres adresJednostki;
+    private StrukturaOrganizacyjna brygadaMacierzysta;
 
     public Batalion(int numer, Adres adresJednostki) {
         super(numer);
         setAdresJednostki(adresJednostki);
+    }
+
+    public Batalion(int numer, Adres adresJednostki, Brygada brygadaMacierzysta) {
+        this(numer, adresJednostki);
+        setBrygadaMacierzysta(brygadaMacierzysta);
+    }
+
+    public StrukturaOrganizacyjna getBrygadaMacierzysta() {
+        return brygadaMacierzysta;
+    }
+
+    public void setBrygadaMacierzysta(Brygada brygadaMacierzysta) {
+        if(brygadaMacierzysta==null) {
+            throw new IllegalArgumentException("brygadaMacierzysta nie może być null");
+        }
+        this.brygadaMacierzysta = brygadaMacierzysta;
     }
 
     public Adres getAdresJednostki() {
@@ -39,6 +56,6 @@ public class Batalion extends StrukturaOrganizacyjna {
 
     @Override
     public String toString() {
-        return numer + " Batalion";
+        return numer + " Batalion"+(brygadaMacierzysta!=null?" "+brygadaMacierzysta:"");
     }
 }
