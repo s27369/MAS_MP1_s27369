@@ -33,7 +33,7 @@ public class Adres {
 
     public void setNumUlica(int numUlica) {
         if(numUlica<1){
-            throw new IllegalArgumentException("Numer ulicy nie może być <1")
+            throw new IllegalArgumentException("Numer ulicy nie może być <1");
         }
         this.numUlica = numUlica;
     }

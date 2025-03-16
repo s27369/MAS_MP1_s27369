@@ -3,7 +3,7 @@ package root;
 public class Brygada {
     protected int numBrygady;
     protected String miasto, typ;
-    protected Adres adresJednostki;
+
     static final String suffix = "Obrony Terytorialnej";
 
     public Brygada(int numBrygady, String typ, String miasto) {
@@ -15,11 +15,6 @@ public class Brygada {
             e.printStackTrace();
 //            removeFromExtent();
         }
-    }
-
-    public Brygada(int numBrygady, String typ, String miasto, Adres adresJednostki) {
-        this(numBrygady, typ, miasto);
-        setAdresJednostki(adresJednostki);
     }
 
     public int getNumBrygady() {
@@ -59,18 +54,7 @@ public class Brygada {
         this.typ = typ;
     }
 
-    public Adres getAdresJednostki() {
-        return adresJednostki;
-    }
 
-    //przeciążenie metody
-    public void setAdresJednostki(Adres adresJednostki) {
-        this.adresJednostki = adresJednostki;
-    }
-
-    public void setAdresJednostki(String ulica, int numUlica, String miasto){
-        this.adresJednostki = new Adres(ulica, numUlica, miasto);
-    }
 
 
 }
