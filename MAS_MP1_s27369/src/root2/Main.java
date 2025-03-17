@@ -4,9 +4,37 @@ import root2.Osoby.Osoba;
 import root2.Osoby.Zolnierz;
 import root2.StrukturyOrganizacyjne.Batalion;
 import root2.StrukturyOrganizacyjne.Brygada;
+import sample.ObjectPlus;
 
 public class Main {
     public static void main(String[] args) {
+
+        /*{
+            createSampleObjects2();
+            root2.ObjectPlus.printExtent();
+            mainSave();
+        }*/
+        {
+            mainLoad();
+            root2.ObjectPlus.printExtent();
+        }
+    }
+
+    private static void mainSave(){
+        try {
+            ObjectPlus.saveExtent();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private static void mainLoad(){
+        try {
+            ObjectPlus.loadExtent();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private static void createSampleObjects(){
         Brygada brygada1 = new Brygada(18, "Stołeczna", "Warszawa");
         System.out.println(brygada1);
         Brygada brygada2 = new Brygada(6, "Mazowiecka", "Radom");
@@ -56,6 +84,11 @@ public class Main {
         System.out.println(dowodca1+", podwładni: "+dowodca1.getPodwladni());
         System.out.println(dowodca2+", podwładni: "+dowodca2.getPodwladni());
 
+        System.out.println(brygada1+", bataliony: "+brygada1.getBataliony());
+        System.out.println(brygada2+", bataliony: "+brygada2.getBataliony());
 
+    }
+    private static void createSampleObjects2(){
+        Zolnierz z1 = new Zolnierz("test", "testowski", "Kapral");
     }
 }

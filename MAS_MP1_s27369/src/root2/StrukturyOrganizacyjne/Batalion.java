@@ -28,7 +28,9 @@ public class Batalion extends StrukturaOrganizacyjna {
         if(brygadaMacierzysta==null) {
             throw new IllegalArgumentException("brygadaMacierzysta nie może być null");
         }
+        System.out.println("W ramach "+brygadaMacierzysta+ " uformowano "+this);
         this.brygadaMacierzysta = brygadaMacierzysta;
+        brygadaMacierzysta.addBatalion(this);
     }
 
     public Adres getAdresJednostki() {

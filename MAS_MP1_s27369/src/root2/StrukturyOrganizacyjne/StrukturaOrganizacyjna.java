@@ -1,14 +1,16 @@
 package root2.StrukturyOrganizacyjne;
 
+import root2.ObjectPlus;
 import root2.Osoby.Dowodca;
 
-public abstract class StrukturaOrganizacyjna {
+public abstract class StrukturaOrganizacyjna extends ObjectPlus {
     Dowodca dowodca;
     int numer;
     protected static final String suffix = "Obrony Terytorialnej";
 
     public StrukturaOrganizacyjna(int numer) {
         setNumer(numer);
+        addToExtent();
     }
 
     public StrukturaOrganizacyjna(Dowodca dowodca, int numer) {

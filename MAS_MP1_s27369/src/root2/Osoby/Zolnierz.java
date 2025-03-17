@@ -15,12 +15,24 @@ public class Zolnierz extends Osoba{
     public Boolean czySzeregowy=false, czyPodoficer=false, czyOficer=false, czyGeneral=false;
     public Zolnierz(String imie, String nazwisko, String stopien) {
         super(imie, nazwisko);
-        setStopien(stopien);
+        try {
+            setStopien(stopien);
+        } catch (Exception e) {
+            e.printStackTrace();
+            removeFromExtent();
+        }
+
     }
 
     public Zolnierz(String imie, String nazwisko, String stopien, Zolnierz przelozony) {
         this(imie, nazwisko, stopien);
-        setPrzelozony(przelozony);
+        try {
+            setPrzelozony(przelozony);
+        } catch (Exception e) {
+            e.printStackTrace();
+            removeFromExtent();
+        }
+
     }
 
     public Zolnierz getPrzelozony() {

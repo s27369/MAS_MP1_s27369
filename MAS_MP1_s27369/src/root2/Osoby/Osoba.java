@@ -1,11 +1,18 @@
 package root2.Osoby;
 
-public class Osoba {
+import root2.ObjectPlus;
+
+public class Osoba extends ObjectPlus {
     private String imie, nazwisko;
 
     public Osoba(String imie, String nazwisko) {
-        setImie(imie);
-        setNazwisko(nazwisko);
+        try {
+            setImie(imie);
+            setNazwisko(nazwisko);
+        } catch (Exception e) {
+            e.printStackTrace();
+            removeFromExtent();
+        }
     }
 
     public String getImie() {

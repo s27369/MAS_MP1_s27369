@@ -1,6 +1,8 @@
 package root2;
 
-public class Adres {
+import java.io.Serializable;
+
+public class Adres implements Serializable {
     private String ulica;
     private int numUlica;
     private String miasto;

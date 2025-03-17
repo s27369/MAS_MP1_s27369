@@ -17,7 +17,13 @@ public class Dowodca extends Zolnierz{
     }
     public Dowodca(String imie, String nazwisko, String stopien, StrukturaOrganizacyjna strukturaOrganizacyjna) {
         this(imie, nazwisko, stopien);
-        obejmijDowodztwo(strukturaOrganizacyjna);
+        try {
+            obejmijDowodztwo(strukturaOrganizacyjna);
+        } catch (Exception e) {
+            e.printStackTrace();
+            removeFromExtent();
+        }
+
     }
 
     public StrukturaOrganizacyjna getDowodzonaStruktura() {

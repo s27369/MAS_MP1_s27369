@@ -3,6 +3,7 @@ package root2.StrukturyOrganizacyjne;
 import root2.Osoby.Dowodca;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Brygada extends StrukturaOrganizacyjna {
@@ -15,6 +16,16 @@ public class Brygada extends StrukturaOrganizacyjna {
         super(numer);
         setTyp(typ);
         setMiasto(miasto);
+    }
+
+    public void addBatalion(Batalion batalion){
+        if(batalion==null)
+            throw new IllegalArgumentException("batalion nie może być null");
+        this.bataliony.add(batalion);
+    }
+
+    public List<Batalion> getBataliony() {
+        return Collections.unmodifiableList(bataliony);
     }
 
     @Override
